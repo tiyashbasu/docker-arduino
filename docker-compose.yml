@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  arduino:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        version: 1.8.5
+        system: linux64
+    network_mode: host
+    privileged: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/bus/usb:/dev/bus/usb
